@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>File Upload</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .container { max-width: 500px; margin: 0 auto; }
+        .alert { padding: 10px; margin: 10px 0; border-radius: 4px; }
+        .alert-success { background-color: #d4edda; color: #155724; }
+        .alert-error { background-color: #f8d7da; color: #721c24; }
+        .btn { 
+            padding: 10px 20px; 
+            background-color: #007bff; 
+            color: white; 
+            border: none; 
+            cursor: pointer; 
+            border-radius: 4px;
+        }
+        .btn:hover { background-color: #0056b3; }
+        .form-group { margin: 15px 0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Upload File to Supabase</h2>
+        
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{% if 'success' in message.tags %}success{% else %}error{% endif %}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+        
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="file">Choose file:</label>
+                <input type="file" name="file" id="file" required>
+            </div>
+            <button type="submit" class="btn">Upload to Media Bucket</button>
+        </form>
+        
+        <hr style="margin: 30px 0;">
+        <a href="{% url 'list_files' %}" class="btn" style="text-decoration: none;">View Uploaded Files</a>
+    </div>
+</body>
+</html>
