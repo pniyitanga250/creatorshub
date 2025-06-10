@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-_58+dvq)@%2pwu1bixl)*fc59&b-=d@2&r$c_h-wb@p)-j+xb+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*', '.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['*', '.onrender.com', '.vercel.app', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -161,6 +161,8 @@ SUPABASE_URL = os.getenv('SUPABASE_URL', 'https://tblkhamminkumvubneys.supabase.
 SUPABASE_ANON_KEY = os.getenv('SUPABASE_ANON_KEY')
 SUPABASE_SERVICE_ROLE_KEY = os.getenv('SUPABASE_SERVICE_ROLE_KEY')
 SUPABASE_BUCKET_NAME = os.getenv('SUPABASE_BUCKET_NAME', 'media')
+
+MEDIA_URL = 'https://cfzhjyeromtdudayqfzu.supabase.co/storage/v1/object/public/media/'
 
 CSRF_TRUSTED_ORIGINS = [
     "https://*.onrender.com",
